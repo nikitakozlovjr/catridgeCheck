@@ -18,7 +18,11 @@
   },
   "homepage": "https://github.com/nikitakozlovjr/catridgeCheck#readme",
   "dependencies": {
+    "express": "^4.19.2",
     "xlsx": "^0.18.5",
     "xlsx-populate": "^1.21.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
   }
 }
