@@ -33,7 +33,23 @@ class CatridgeController {
             return acc;
         }, {})
         return catridgesByPrinter;
-    }
+    };
+
+    getDrawBack(__req, __res) {
+        console.log('Connect!')
+        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
+        const catridgesOrder = Object.keys(data).reduce((acc, catridgeName) => {
+            const { count } = data[catridgeName];
+            const { allowableBalance } = data[catridgeName];
+            
+            if(count <= allowableBalance) {
+                acc[catridgeName] = data[catridgeName];
+            };
+            return acc;
+        }, {});
+        
+        return catridgesOrder;
+    };
 };
 
 export default CatridgeController;
