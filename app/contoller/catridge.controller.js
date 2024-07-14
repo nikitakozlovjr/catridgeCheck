@@ -20,6 +20,19 @@ class CatridgeController {
         const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
         const catridgeInfo = data[catridgeName]
         return JSON.stringify(catridgeInfo);
+    };
+
+    getCatridgeByPrinter(req, __res) {
+        const { printerName } = req.params;
+        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
+        const catridgesByPrinter = Object.keys(data).reduce((acc, catridgeName) => {
+            const { printers } = data[catridgeName];
+            if (printers.includes(printerName)) {
+                acc[catridgeName] = data[catridgeName];
+            };
+            return acc;
+        }, {})
+        return catridgesByPrinter;
     }
 };
 
