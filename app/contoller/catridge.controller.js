@@ -14,6 +14,13 @@ class CatridgeController {
         const data = fs.readFileSync(this.pathToCatridgeData, 'utf-8');
         return data;
     };
+
+    getCatridge(req, __res) {
+        const { catridgeName } = req.params;
+        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
+        const catridgeInfo = data[catridgeName]
+        return JSON.stringify(catridgeInfo);
+    }
 };
 
 export default CatridgeController;
