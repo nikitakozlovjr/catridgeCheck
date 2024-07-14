@@ -19,6 +19,15 @@ router.get('/:catridgeName', (req, res) => {
     } catch(e) {
         res.send(`Не удается прочитать файл. Ошибка: ${e}`)
     }
+});
+
+router.get('/byprinter/:printerName', (req, res) => {
+    try {
+        const data = new CatridgeController().getCatridgeByPrinter(req, res);
+        res.send(data);
+    } catch(e) {
+        res.send(`Не удается прочитать файл. Ошибка: ${e}`);
+    }
 })
 
 export default router;
