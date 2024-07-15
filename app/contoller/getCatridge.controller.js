@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-class CatridgeController {
+class GetCatridgeController {
     constructor() {
         this.pathToCatridgeData = path.join(__dirname, '..', 'db', 'catridgeData.json')
     };
@@ -32,24 +32,23 @@ class CatridgeController {
             };
             return acc;
         }, {})
-        return catridgesByPrinter;
+        return JSON.stringify(catridgesByPrinter);
     };
 
     getDrawBack(__req, __res) {
-        console.log('Connect!')
         const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
         const catridgesOrder = Object.keys(data).reduce((acc, catridgeName) => {
             const { count } = data[catridgeName];
             const { allowableBalance } = data[catridgeName];
             
-            if(count <= allowableBalance) {
+            if(count < allowableBalance) {
                 acc[catridgeName] = data[catridgeName];
             };
             return acc;
         }, {});
         
-        return catridgesOrder;
+        return JSON.stringify(catridgesOrder);
     };
 };
 
-export default CatridgeController;
+export default GetCatridgeController;
