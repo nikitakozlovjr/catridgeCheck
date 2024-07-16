@@ -10,11 +10,11 @@ class PostCatridgeController {
         this.pathToCatridgeData = path.join(__dirname, '..', 'db', 'catridgeData.json')
     }
 
-    addCatridge(req, res) {
+    addCatridge(req, __res) {
         const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
         const { catridgeName, count, brand, printers, allowbalanse, color } = req.body;
         data[catridgeName] = { count, brand, printers, allowbalanse, color };
-        const newData = JSON.stringify(data);
+        const newData = JSON.stringify(data, null, 2);
         const result = fs.writeFileSync(this.pathToCatridgeData, newData);
         return result;
     }
