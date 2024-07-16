@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/nikitakozlovjr/catridgeCheck#readme",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "express": "^4.19.2"
   },
   "devDependencies": {
