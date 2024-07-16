@@ -39,4 +39,13 @@ router.post('/addprinter', (req, res) => {
     }
 });
 
+router.post('/chalbalance', (req, res) => {
+    try {
+        const data = new PostCatridgeController().changeAllowedBalance(req, res);
+        res.send(data)
+    } catch(e) {
+        res.send(`Не удалось внести изменения ${e}`);
+    }
+});
+
 export default router;

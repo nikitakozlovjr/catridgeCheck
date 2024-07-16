@@ -1,4 +1,3 @@
-import _ from 'lodash';
 import fs from 'node:fs';
 import path from 'path';
 import { fileURLToPath } from "node:url";
@@ -22,38 +21,6 @@ class PostCatridgeController {
         return result;
     }
 
-    reflectIssue(req, __res) {
-        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
-        const { catridgeName, countIssued } = req.body;
-        if(data[catridgeName].count < countIssued) {
-            return this.messageInvalidRemainder;
-        }
-        const newCountStore = data[catridgeName].count - countIssued;
-        data[catridgeName].count = newCountStore;
-        const newData = JSON.stringify(data, null, 2);
-        fs.writeFileSync(this.pathToCatridgeData, newData);
-        return this.messageSuccesfull;
-    }
-
-    reflectReceipt(req, __res) {
-        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
-        const { catridgeName, countIssued } = req.body;
-        const newCountStore = data[catridgeName].count + countIssued;
-        data[catridgeName].count = newCountStore;
-        const newData = JSON.stringify(data, null, 2);
-        fs.writeFileSync(this.pathToCatridgeData, newData);
-        return this.messageSuccesfull;
-    }
-
-    addValidPrinter(req, __res) {
-        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
-        const { catridgeName, newValidPrinters } = req.body;
-        const newPrinters = _.uniq(data[catridgeName].printers.concat(newValidPrinters));
-        data[catridgeName].printers = newPrinters;
-        const newData = JSON.stringify(data, null, 2);
-        fs.writeFileSync(this.pathToCatridgeData, newData);
-        return this.messageSuccesfull;
-    }
 };
 
 export default PostCatridgeController;
