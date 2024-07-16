@@ -30,4 +30,13 @@ router.post('/receipt', (req, res) => {
     }
 });
 
+router.post('/addprinter', (req, res) => {
+    try {
+        const data = new PostCatridgeController().addValidPrinter(req, res);
+        res.send(data)
+    } catch(e) {
+        res.send(`Не удалось внести изменения ${e}`);
+    }
+});
+
 export default router;
