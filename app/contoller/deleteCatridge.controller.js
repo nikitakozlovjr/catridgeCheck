@@ -19,6 +19,16 @@ class DeleteCatridgeController {
         fs.writeFileSync(this.pathToCatridgeData, newData);
         return this.messageSuccesfull;
     }
+
+    deleteValidPrinters(req, __res) {
+        const { catridgeName, printerName } = req.body;
+        const data = JSON.parse(fs.readFileSync(this.pathToCatridgeData, 'utf-8'));
+        const newPrinters = data[catridgeName].printers.filter((printer) => printer !== printerName);
+        data[catridgeName].printers = newPrinters;
+        const newData = JSON.stringify(data, null, 2);
+        fs.writeFileSync(this.pathToCatridgeData, newData);
+        return this.messageSuccesfull;
+    }
 }
 
 export default DeleteCatridgeController;
