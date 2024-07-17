@@ -1,34 +1,41 @@
 {
-    "CE278A": {
-        "count": 14,
-        "brand": "Nvprint",
-        "printers": [
-            "HP LaserJet 153dnf",
-            "HP LaserJet Pro 1600dnf",
-            "HP LaserJet 1566dnf"
-        ],
-        "allowableBalance": 4,
-        "color": "Black"
-    },
-    "TK3190": {
-        "count": 3,
-        "brand": "KYOCERA",
-        "printers": [
-            "Kyocera ECOSYS M3655idn",
-            "Kyocera ECOSYS M3860idn"
-        ],
-        "allowableBalance": 2,
-        "color": "Black"
-    },
-    "CE402A": {
-        "count": 3,
-        "brand": "Nvprint",
-        "printers": [
-            "HP Color LaserJet Enterprise M551",
-            "HP Color LaserJet Pro M570dn",
-            "HP LaserJet 1566dnf"
-        ],
-        "allowableBalance": 4,
-        "color": "Yellow"
-    }
+  "CE278A": {
+    "count": 14,
+    "brand": "Nvprint",
+    "printers": [
+      "HP LaserJet 153dnf",
+      "HP LaserJet Pro 1600dnf",
+      "HP LaserJet 1566dnf"
+    ],
+    "allowableBalance": 4,
+    "color": "Black"
+  },
+  "TK3190": {
+    "count": 3,
+    "brand": "KYOCERA",
+    "printers": [
+      "Kyocera ECOSYS M3655idn",
+      "Kyocera ECOSYS M3860idn"
+    ],
+    "allowableBalance": 2,
+    "color": "Black"
+  },
+  "CE402A": {
+    "count": 3,
+    "brand": "Nvprint",
+    "printers": [
+      "HP Color LaserJet Enterprise M551",
+      "HP Color LaserJet Pro M570dn",
+      "HP LaserJet 1566dnf"
+    ],
+    "allowableBalance": 4,
+    "color": "Yellow"
+  },
+  "TK3165": {
+    "count": 0,
+    "brand": "Kyocera",
+    "printers": [],
+    "allowableBalance": 3,
+    "color": "Black"
+  }
 }
