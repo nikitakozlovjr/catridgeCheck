@@ -1,1 +1,38 @@
-Тут будет поиск!
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script type="module" src="../src/search/index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="button-box">
+            <form class="all-catridge">
+                <button type="submit">Все катриджи</button>
+            </form>
+        </div>
+        <div class="button-box">
+            <form class="byname-catridge">
+                <input class="catridgeNameValue" placeholder="Название катриджа">
+                <button type="submit">Поиск по названию</button>
+            </form>
+        </div>
+        <div class="button-box">
+            <form class="byprinter-catridge">
+                <input class="printerNameValue" placeholder="Название принтера">
+                <button type="submit">Поиск по совместимости с принтером</button>
+            </form>
+        </div>
+        <div class="button-box">
+            <form class="bybalance-catridge">
+                <button type="submit">Поиск катриджей с недопустимым остатком</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="container-result"></div>
+</body>
+</html>
